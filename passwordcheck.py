@@ -1,6 +1,7 @@
 import requests
 import hashlib
 import sys
+import pathlib
 
 def req_api_data(query_char):
     res = requests.get(f'https://api.pwnedpasswords.com/range/{query_char}')
@@ -19,7 +20,7 @@ def main(args):
     for password in args:
         count = pewend_api_check(password)
         if count:
-            print(f'{password} was found in {count} times.... you should')
+            print(f'{password} was found in {count} times.... you should change')
         else:
             print(f'{password} was NOT FOUND. carry on!')
     return 'done'
@@ -30,8 +31,11 @@ def pewend_api_check(password):
     response = req_api_data(frist5_char)
     return passwords_leaks(response, tail)
 
+new = open('/Users/ramsaiteja/Downloads/PYTHON PROGRAMS/pythonpasswordproject/new.txt','r')
+word = new.read()
+passwords = word.split()
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main(passwords[:])
 
 
 
