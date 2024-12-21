@@ -28,12 +28,10 @@ def pewend_api_check(password):
     m = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     frist5_char , tail= m[:5], m[5:]
     response = req_api_data(frist5_char)
-    print(response)
     return passwords_leaks(response, tail)
 
-
-
-main(sys.argv[1:])
+if __name__ == '__main__':
+    main(sys.argv[1:])
 
 
 
