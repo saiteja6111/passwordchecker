@@ -35,7 +35,8 @@ new = open('/Users/ramsaiteja/Downloads/PYTHON PROGRAMS/pythonpasswordproject/ne
 word = new.read()
 passwords = word.split()
 if __name__ == '__main__':
-    main(passwords[:])
+    sys.exit(main(passwords[:]))
+    
 
 
 
